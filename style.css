@@ -1,17 +1,13 @@
 body{
     margin:0;
-    padding:0;
-    font-family:Arial, Tahoma, sans-serif;
+    font-family:Arial;
     background:#f4f6f9;
 }
 
-.main-header{
+h1{
+    margin:0;
+    padding:20px;
     background:#1f4e79;
     color:white;
     text-align:center;
-    padding:18px;
-    font-size:28px;
-    font-weight:bold;
-    letter-spacing:1px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.2);
 }
