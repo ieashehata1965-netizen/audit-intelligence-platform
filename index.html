@@ -128,20 +128,20 @@ function updateDashboard(){
     // 1. إجمالي التقارير (KPI)
     document.getElementById("totalReports").innerText = reports.length + " Reports";
 
-    // 2. معالجة حالة عدم وجود بيانات (Control Exception Handling)
+    // 2. معالجة حالة عدم وجود بيانات
     if(reports.length === 0){
         document.getElementById("reportsList").innerHTML =
             "<div class='empty-state'>No Audit Reports Found</div>";
         return;
     }
 
-    // 3. بناء المحتوى (Structured Reporting View)
+    // 3. أخذ آخر 5 تقارير فقط (Control of Display Load)
+    let visibleReports = reports.slice(-5);
+
+    // 4. بناء المحتوى
     let html = "";
 
-   let visibleReports = reports.slice(-5);
-
-visibleReports.forEach(function(r){
-    
+    visibleReports.forEach(function(r){
 
         html += `
         <div class="report-card">
@@ -163,7 +163,7 @@ visibleReports.forEach(function(r){
         `;
     });
 
-    // 4. العرض النهائي
+    // 5. العرض النهائي
     document.getElementById("reportsList").innerHTML = html;
 }
     
