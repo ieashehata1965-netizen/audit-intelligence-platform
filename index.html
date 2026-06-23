@@ -95,9 +95,11 @@ const observation = document.getElementById("observation").value;
     title: title,
     department: department,
     scope: scope,
+    observation: observation,
     status: "Draft",
     createdAt: new Date().toISOString()
 };
+        
         
     // 3. جلب البيانات القديمة من LocalStorage
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
