@@ -110,3 +110,52 @@ button{
     padding:8px;
     box-sizing:border-box; /* تحسين فقط بدون أي تأثير بصري */
 }
+
+/* =======================
+   Reports Area Container
+======================= */
+#reportsList{
+    margin-top: 25px;
+    padding: 10px;
+}
+
+/* =======================
+   Audit Report Card
+======================= */
+.report-card{
+    background: white;
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #0b3d91;
+    transition: 0.2s ease;
+}
+
+.report-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+.report-title{
+    font-size: 16px;
+    font-weight: 700;
+    color: #0b3d91;
+}
+
+.report-meta{
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.report-status{
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: #e8f0ff;
+    color: #0b3d91;
+}
+
