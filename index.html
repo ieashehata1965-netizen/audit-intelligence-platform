@@ -121,7 +121,9 @@ function updateDashboard(){
     let total = reports.length;
 
     document.getElementById("totalReports").innerText = total + " Reports";
-}
+
+    document.getElementById("reportsList").innerHTML = "Reports Area Ready";
+   } 
 
 // تشغيل التحديث عند فتح الصفحة
 window.onload = function(){
