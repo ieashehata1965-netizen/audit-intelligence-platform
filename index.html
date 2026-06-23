@@ -91,14 +91,14 @@ const observation = document.getElementById("observation").value;
 
     // 2. إنشاء كائن التقرير
     const report = {
-        id: "AR-" + Date.now(),
-        title: title,
-        department: department,
-        scope: scope,
-        status: "Draft",
-        createdAt: new Date().toISOString()
-    };
-
+    id: "AR-" + Date.now(),
+    title: title,
+    department: department,
+    scope: scope,
+    status: "Draft",
+    createdAt: new Date().toISOString()
+};
+        
     // 3. جلب البيانات القديمة من LocalStorage
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
 
