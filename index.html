@@ -47,18 +47,19 @@
 
     <h2>Create Audit Report</h2>
 
-    <input type="text" placeholder="Audit Title">
-    <input type="text" placeholder="Department / Entity">
-    <textarea placeholder="Audit Scope"></textarea>
+    <input type="text" id="auditTitle" placeholder="Audit Title">
 
-    <button onclick="openModal()">
-Create Audit Report
-</button>
-      
+    <input type="text" id="auditDepartment" placeholder="Department / Entity">
+
+    <textarea id="auditScope" placeholder="Audit Scope"></textarea>
+
+    <button onclick="saveAuditReport()">
+      Create Audit Report
+    </button>
 
   </div>
 </div>
-
+    
 <script>
 function openModal(){
     const modal = document.getElementById("auditModal");
