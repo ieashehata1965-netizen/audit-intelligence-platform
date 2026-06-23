@@ -118,18 +118,45 @@ function updateDashboard(){
 
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
 
-    let total = reports.length;
+    // 1. إجمالي التقارير (KPI)
+    document.getElementById("totalReports").innerText = reports.length + " Reports";
 
-    document.getElementById("totalReports").innerText = total + " Reports";
+    // 2. معالجة حالة عدم وجود بيانات (Control Exception Handling)
+    if(reports.length === 0){
+        document.getElementById("reportsList").innerHTML =
+            "<div class='empty-state'>No Audit Reports Found</div>";
+        return;
+    }
 
-    document.getElementById("reportsList").innerHTML = "Reports Area Ready";
-   } 
+    // 3. بناء المحتوى (Structured Reporting View)
+    let html = "";
 
-// تشغيل التحديث عند فتح الصفحة
-window.onload = function(){
-    updateDashboard();
+    reports.forEach(function(r){
+
+        html += `
+        <div class="report-card">
+
+            <div class="report-title">
+                ${r.title || "Untitled Report"}
+            </div>
+
+            <div class="report-meta">
+                Department: ${r.department || "N/A"} <br>
+                ID: ${r.id || "N/A"}
+            </div>
+
+            <div class="report-status status-${r.status}">
+                ${r.status || "Unknown"}
+            </div>
+
+        </div>
+        `;
+    });
+
+    // 4. العرض النهائي
+    document.getElementById("reportsList").innerHTML = html;
 }
-
+    
 </script>
 
 </body>
