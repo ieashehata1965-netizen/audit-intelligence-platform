@@ -72,7 +72,43 @@ function closeModal(){
     const modal = document.getElementById("auditModal");
     modal.style.display = "none";
 }
+
+    function saveAuditReport(){
+
+    // 1. جلب القيم من الحقول
+    const title = document.querySelector("input[placeholder='Audit Title']").value;
+    const department = document.querySelector("input[placeholder='Department / Entity']").value;
+    const scope = document.querySelector("textarea").value;
+
+    // 2. إنشاء كائن التقرير
+    const report = {
+        id: "AR-" + Date.now(),
+        title: title,
+        department: department,
+        scope: scope,
+        status: "Draft",
+        createdAt: new Date().toISOString()
+    };
+
+    // 3. جلب البيانات القديمة من LocalStorage
+    let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
+
+    // 4. إضافة التقرير الجديد
+    reports.push(report);
+
+    // 5. حفظ مرة أخرى
+    localStorage.setItem("auditReports", JSON.stringify(reports));
+
+    // 6. تنبيه بسيط
+    alert("Report Saved Successfully");
+
+    // 7. إغلاق المودال
+    closeModal();
+}
+    
 </script>
+
+    
     
 
 </body>
