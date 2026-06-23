@@ -58,11 +58,15 @@
 
 <script>
 function openModal(){
-    document.getElementById("auditModal").style.display="block";
-}
+    const modal = document.getElementById("auditModal");
 
-function closeModal(){
-    document.getElementById("auditModal").style.display="none";
+    modal.style.display = "block";
+    modal.style.background = "red"; // اختبار بصري
+    modal.style.position = "fixed";
+    modal.style.top = "0";
+    modal.style.left = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
 }
 </script>
     
