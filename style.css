@@ -14,3 +14,7 @@ body{
     letter-spacing:1px;
     box-shadow:0 3px 10px rgba(0,0,0,0.2);
 }
+/* هنا تضيفه */
+.container{
+    padding:20px;
+}
