@@ -109,6 +109,16 @@ function closeModal(){
     // 7. إغلاق المودال
     closeModal();
 }
+
+
+    function updateDashboard(){
+
+    let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
+
+    let total = reports.length;
+
+    document.getElementById("totalReports").innerText = total + " Reports";
+}
     
 </script>
 
