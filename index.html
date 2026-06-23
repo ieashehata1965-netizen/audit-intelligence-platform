@@ -38,5 +38,32 @@
 
 </div>
 
+<!-- 🔴 هنا مباشرة ضع Modal -->
+
+<div id="auditModal" class="modal">
+  <div class="modal-content">
+
+    <h2>Create Audit Report</h2>
+
+    <input type="text" placeholder="Audit Title">
+    <input type="text" placeholder="Department / Entity">
+    <textarea placeholder="Audit Scope"></textarea>
+
+    <button>Submit Report</button>
+    <button onclick="closeModal()">Close</button>
+
+  </div>
+</div>
+
+<script>
+function openModal(){
+    document.getElementById("auditModal").style.display="block";
+}
+
+function closeModal(){
+    document.getElementById("auditModal").style.display="none";
+}
+</script>
+
 </body>
 </html>
