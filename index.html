@@ -138,7 +138,10 @@ function updateDashboard(){
     // 3. بناء المحتوى (Structured Reporting View)
     let html = "";
 
-    reports.forEach(function(r){
+   let visibleReports = reports.slice(-5);
+
+visibleReports.forEach(function(r){
+    
 
         html += `
         <div class="report-card">
