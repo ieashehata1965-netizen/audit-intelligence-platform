@@ -80,9 +80,14 @@ function closeModal(){
     function saveAuditReport(){
 
     // 1. جلب القيم من الحقول
-    const title = document.querySelector("input[placeholder='Audit Title']").value;
-    const department = document.querySelector("input[placeholder='Department / Entity']").value;
-    const scope = document.querySelector("textarea").value;
+    const title = document.getElementById("auditTitle").value;
+
+const department = document.getElementById("auditDepartment").value;
+
+const scope = document.getElementById("auditScope").value;
+
+const observation = document.getElementById("observation").value;
+        
 
     // 2. إنشاء كائن التقرير
     const report = {
