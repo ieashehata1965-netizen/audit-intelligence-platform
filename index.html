@@ -108,10 +108,12 @@ function closeModal(){
 
     // 7. إغلاق المودال
     closeModal();
+
+    // تحديث الداشبورد مباشرة بعد الحفظ
+    updateDashboard();
 }
 
-
-    function updateDashboard(){
+function updateDashboard(){
 
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
 
@@ -119,11 +121,13 @@ function closeModal(){
 
     document.getElementById("totalReports").innerText = total + " Reports";
 }
-    
-</script>
 
-    
-    
+// تشغيل التحديث عند فتح الصفحة
+window.onload = function(){
+    updateDashboard();
+}
+
+</script>
 
 </body>
 </html>
