@@ -83,17 +83,14 @@ function closeModal(){
     function saveAuditReport(){
 
     // 1. جلب القيم من الحقول
-    const title = document.getElementById("auditTitle").value;
-
+const title = document.getElementById("auditTitle").value;
 const department = document.getElementById("auditDepartment").value;
-
 const scope = document.getElementById("auditScope").value;
 
 const observation = document.getElementById("observation").value;
-        const rootCause = document.getElementById("rootCause").value;
-
+const rootCause = document.getElementById("rootCause").value;
 const impact = document.getElementById("impact").value;
- const recommendation = document.getElementById("recommendation").value;       
+const recommendation = document.getElementById("recommendation").value;       
 
     // 2. إنشاء كائن التقرير
     const report = {
