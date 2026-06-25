@@ -160,4 +160,9 @@ button{
     background: #e8f0ff;
     color: #0b3d91;
 }
-
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:15px;
+}
