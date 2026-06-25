@@ -173,6 +173,12 @@ function closeModal(){
     function saveAuditReport(){
 
     // 1. جلب القيم من الحقول
+const auditNumber = document.getElementById("auditNumber").value;
+const auditPeriod = document.getElementById("auditPeriod").value;
+const auditor = document.getElementById("auditor").value;
+const reviewer = document.getElementById("reviewer").value;
+const reportDate = document.getElementById("reportDate").value;
+const auditObjective = document.getElementById("auditObjective").value;
 const title = document.getElementById("auditTitle").value;
 const department = document.getElementById("auditDepartment").value;
 const scope = document.getElementById("auditScope").value;
