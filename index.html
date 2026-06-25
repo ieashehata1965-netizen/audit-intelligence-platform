@@ -50,15 +50,105 @@
 
     <h2>Create Audit Report</h2>
 
-    <input type="text" id="auditTitle" placeholder="Audit Title">
-    <input type="text" id="auditDepartment" placeholder="Department / Entity">
-    <textarea id="auditScope" placeholder="Audit Scope"></textarea>
-      <textarea id="observation" placeholder="Observation"></textarea>
-      <textarea id="rootCause" placeholder="Root Cause"></textarea>
-<textarea id="impact" placeholder="Impact"></textarea>  
-      <textarea id="recommendation" placeholder="Recommendation"></textarea>
-    <button onclick="saveAuditReport()">
-      Save Report
+<input type="text" id="auditNumber" placeholder="Audit Number">
+
+<input type="text" id="auditTitle" placeholder="Audit Title">
+
+<input type="text" id="auditDepartment" placeholder="Department / Entity">
+
+<input type="text" id="auditPeriod" placeholder="Audit Period">
+
+<input type="text" id="auditor" placeholder="Auditor">
+
+<input type="text" id="reviewer" placeholder="Reviewer">
+
+<input type="date" id="reportDate">
+
+<textarea id="auditObjective" placeholder="Audit Objective"></textarea>
+
+<textarea id="auditScope" placeholder="Audit Scope"></textarea>
+
+<hr>
+
+<h3>Observation Details</h3>
+
+<input type="text" id="observationNumber" placeholder="Observation Number">
+
+<textarea id="controlObjective" placeholder="Control Objective"></textarea>
+
+<select id="criteria">
+  <option value="">Select Criteria</option>
+  <option>IIA Standards</option>
+  <option>IPPF</option>
+  <option>COSO</option>
+  <option>ISO 9001</option>
+  <option>ISO 45001</option>
+  <option>Company Policy</option>
+  <option>Procedure Manual</option>
+  <option>Contract Requirement</option>
+  <option>Saudi Law</option>
+</select>
+
+<textarea id="observation" placeholder="Condition / Observation"></textarea>
+
+<textarea id="rootCause" placeholder="Root Cause"></textarea>
+
+<textarea id="impact" placeholder="Impact / Consequence"></textarea>
+
+<textarea id="recommendation" placeholder="Recommendation"></textarea>
+
+<select id="riskType">
+  <option value="">Risk Type</option>
+  <option>Strategic</option>
+  <option>Financial</option>
+  <option>Operational</option>
+  <option>Compliance</option>
+  <option>Fraud</option>
+  <option>IT</option>
+</select>
+
+<select id="likelihood">
+  <option value="">Likelihood</option>
+  <option>High</option>
+  <option>Medium</option>
+  <option>Low</option>
+</select>
+
+<select id="impactRating">
+  <option value="">Impact Rating</option>
+  <option>High</option>
+  <option>Medium</option>
+  <option>Low</option>
+</select>
+
+<select id="riskRating">
+  <option value="">Risk Rating</option>
+  <option>Critical</option>
+  <option>High</option>
+  <option>Medium</option>
+  <option>Low</option>
+</select>
+
+<textarea id="managementResponse" placeholder="Management Response"></textarea>
+
+<input type="text" id="responsiblePerson" placeholder="Responsible Person">
+
+<input type="date" id="targetDate">
+
+<select id="status">
+  <option value="">Status</option>
+  <option>Open</option>
+  <option>In Progress</option>
+  <option>Closed</option>
+  <option>Overdue</option>
+</select>
+
+<input type="text" id="workingPaper" placeholder="Working Paper Reference">
+
+<textarea id="overallConclusion" placeholder="Overall Conclusion"></textarea>
+
+<button onclick="saveAuditReport()">
+  Save Report
 </button>
       
 
