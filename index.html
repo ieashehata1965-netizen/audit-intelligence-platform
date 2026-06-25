@@ -236,7 +236,7 @@ function updateDashboard(){
     visibleReports.forEach(function(r){
 
         html += `
-        <div class="report-card">
+        <div class="report-card" onclick="viewReport('${r.id}')">
 
             <div class="report-title">
                 ${r.title || "Untitled Report"}
