@@ -204,16 +204,42 @@ const workingPaper = document.getElementById("workingPaper").value;
 const overallConclusion = document.getElementById("overallConclusion").value;        
 
     // 2. إنشاء كائن التقرير
-    const report = {
+   const report = {
     id: "AR-" + Date.now(),
-    title: title,
-    department: department,
-    scope: scope,
-    observation: observation,
-    recommendation: recommendation,
-    status: "Draft",
+
+    auditNumber,
+    title,
+    department,
+    auditPeriod,
+    auditor,
+    reviewer,
+    reportDate,
+    auditObjective,
+    scope,
+
+    observationNumber,
+    controlObjective,
+    criteria,
+    observation,
+    rootCause,
+    impact,
+    recommendation,
+
+    riskType,
+    likelihood,
+    impactRating,
+    riskRating,
+
+    managementResponse,
+    responsiblePerson,
+    targetDate,
+    workingPaper,
+    overallConclusion,
+
+    status: statusField || "Draft",
+
     createdAt: new Date().toISOString()
-};        
+};       
         
     // 3. جلب البيانات القديمة من LocalStorage
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
