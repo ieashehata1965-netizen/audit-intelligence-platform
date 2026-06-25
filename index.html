@@ -337,7 +337,8 @@ function updateDashboard(){
     document.getElementById("reportContent").innerHTML = `
 <div style="text-align:right; line-height:1.8; font-family:Arial">
 
-<h3>Audit Report</h3>
+<h3>${report.title || ""}</h3>
+
 <hr>
 
 <p><b>Audit Number:</b> ${report.auditNumber || ""}</p>
@@ -356,25 +357,9 @@ function updateDashboard(){
 
 </div>
 `;
-<h3>${report.title || ""}</h3>
-
-<p><b>Audit Number:</b> ${report.auditNumber || ""}</p>
-
-<p><b>Department:</b> ${report.department || ""}</p>
-
-<p><b>Observation:</b><br>${report.observation || ""}</p>
-
-<p><b>Root Cause:</b><br>${report.rootCause || ""}</p>
-
-<p><b>Recommendation:</b><br>${report.recommendation || ""}</p>
-
-<p><b>Risk Rating:</b> ${report.riskRating || ""}</p>
-
-<p><b>Status:</b> ${report.status || ""}</p>
-`;
 
 document.getElementById("reportViewer").style.display = "block";
- }
+}
     
     function closeReportViewer(){
     document.getElementById("reportViewer").style.display = "none";
