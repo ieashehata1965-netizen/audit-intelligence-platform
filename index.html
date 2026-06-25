@@ -317,9 +317,21 @@ function updateDashboard(){
     }
 
     alert(
-        "Title: " + report.title +
-        "\nDepartment: " + report.department +
-        "\nStatus: " + report.status
+        "Audit Number: " + (report.auditNumber || "") +
+
+        "\n\nTitle: " + (report.title || "") +
+
+        "\n\nDepartment: " + (report.department || "") +
+
+        "\n\nObservation: " + (report.observation || "") +
+
+        "\n\nRoot Cause: " + (report.rootCause || "") +
+
+        "\n\nRecommendation: " + (report.recommendation || "") +
+
+        "\n\nRisk Rating: " + (report.riskRating || "") +
+
+        "\n\nStatus: " + (report.status || "")
     );
 }
     
