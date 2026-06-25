@@ -334,25 +334,25 @@ function updateDashboard(){
         return;
     }
 
-    alert(
-        "Audit Number: " + (report.auditNumber || "") +
+    document.getElementById("reportContent").innerHTML = `
+<h3>${report.title || ""}</h3>
 
-        "\n\nTitle: " + (report.title || "") +
+<p><b>Audit Number:</b> ${report.auditNumber || ""}</p>
 
-        "\n\nDepartment: " + (report.department || "") +
+<p><b>Department:</b> ${report.department || ""}</p>
 
-        "\n\nObservation: " + (report.observation || "") +
+<p><b>Observation:</b><br>${report.observation || ""}</p>
 
-        "\n\nRoot Cause: " + (report.rootCause || "") +
+<p><b>Root Cause:</b><br>${report.rootCause || ""}</p>
 
-        "\n\nRecommendation: " + (report.recommendation || "") +
+<p><b>Recommendation:</b><br>${report.recommendation || ""}</p>
 
-        "\n\nRisk Rating: " + (report.riskRating || "") +
+<p><b>Risk Rating:</b> ${report.riskRating || ""}</p>
 
-        "\n\nStatus: " + (report.status || "")
-    );
-}
+<p><b>Status:</b> ${report.status || ""}</p>
+`;
 
+document.getElementById("reportViewer").style.display = "block";
     function closeReportViewer(){
     document.getElementById("reportViewer").style.display = "none";
 }
