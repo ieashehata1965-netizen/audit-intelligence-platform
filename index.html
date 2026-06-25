@@ -258,6 +258,23 @@ function updateDashboard(){
     // 5. العرض النهائي
     document.getElementById("reportsList").innerHTML = html;
 }
+    function viewReport(id){
+
+    let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
+
+    let report = reports.find(r => r.id == id);
+
+    if(!report){
+        alert("Report Not Found");
+        return;
+    }
+
+    alert(
+        "Title: " + report.title +
+        "\nDepartment: " + report.department +
+        "\nStatus: " + report.status
+    );
+}
     
 </script>
 
