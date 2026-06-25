@@ -277,7 +277,15 @@ const overallConclusion = document.getElementById("overallConclusion").value;
         
     // 3. جلب البيانات القديمة من LocalStorage
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
+let searchText = document.getElementById("searchReport")?.value.toLowerCase() || "";
 
+reports = reports.filter(r =>
+    (r.auditNumber || "").toLowerCase().includes(searchText) ||
+    (r.title || "").toLowerCase().includes(searchText) ||
+    (r.department || "").toLowerCase().includes(searchText)
+);
+        
+        
     // 4. إضافة التقرير الجديد
     reports.push(report);
 
