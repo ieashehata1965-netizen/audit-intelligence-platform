@@ -169,7 +169,13 @@ button{
 @media print {
 
   @page {
-    margin: 5mm;
+    margin: 0;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
   }
 
   body * {
@@ -185,6 +191,7 @@ button{
     left: 0;
     top: 0;
     width: 100%;
+    background: white !important;
   }
 
   button {
