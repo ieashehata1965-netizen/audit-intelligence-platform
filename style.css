@@ -167,11 +167,20 @@ button{
     margin-top:15px;
 }
 @media print {
+
   button {
     display: none !important;
   }
 
   body {
-    direction: rtl;
+    direction: ltr;
+    text-align: left;
+  }
+
+  #reportViewer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
 }
