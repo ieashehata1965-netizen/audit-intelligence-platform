@@ -207,3 +207,14 @@ button{
     direction: rtl;
   }
 }
+@media print {
+
+  button {
+    display: none !important;
+  }
+
+  body {
+    direction: rtl;
+  }
+
+}
