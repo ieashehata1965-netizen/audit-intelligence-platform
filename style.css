@@ -177,9 +177,9 @@ button{
   }
 
   .modal-content{
-      width:100% !important;
+      width:auto !important;
       max-width:none !important;
-      margin:0 !important;
+      margin:10mm auto !important;
       padding:8px !important;
       border:none !important;
       border-radius:0 !important;
