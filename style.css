@@ -173,6 +173,10 @@ button{
     margin: 10mm;
   }
 
+  body > *:not(#reportViewer){
+      display:none !important;
+  }
+
   button {
     display: none !important;
   }
