@@ -168,22 +168,39 @@ button{
 }
 @media print {
 
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
   button {
     display: none !important;
   }
 
   body {
     direction: rtl;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  .modal{
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: transparent !important;
   }
 
   .modal-content{
-      width:auto !important;
-      max-width:none !important;
-      margin:10mm auto !important;
-      padding:8px !important;
-      border:none !important;
-      border-radius:0 !important;
-      box-shadow:none !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
   }
 
 }
