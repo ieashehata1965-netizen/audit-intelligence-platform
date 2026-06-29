@@ -270,15 +270,14 @@ const overallConclusion = document.getElementById("overallConclusion").value;
     createdAt: new Date().toISOString()
 };       
         
-        
-    
-        // 4.  إضافة التقرير الجديد
-        let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
-        reports.push(report);
+      // Load existing reports
+let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
 
-    // 5. حفظ مرة أخرى
-    localStorage.setItem("auditReports", JSON.stringify(reports));
+// Add new report
+reports.push(report);
 
+// Save back
+localStorage.setItem("auditReports", JSON.stringify(reports));
     // 6. تنبيه بسيط
     alert("Report Saved Successfully");
 
