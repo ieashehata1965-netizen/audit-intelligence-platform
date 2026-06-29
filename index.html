@@ -212,10 +212,10 @@ const title = document.getElementById("auditTitle").value;
 const department = document.getElementById("auditDepartment").value;
 const scope = document.getElementById("auditScope").value;
 
-const observation = document.getElementById("observation").value;
-const rootCause = document.getElementById("rootCause").value;
+const observation = document.getElementById("observation")?.value || "";
+const rootCause = document.getElementById("rootCause")?.value || "";
 const impact = document.getElementById("impact").value;
-const recommendation = document.getElementById("recommendation").value;
+const recommendation = document.getElementById("recommendation")?.value || "";
 const observationNumber = document.getElementById("observationNumber").value;
 const controlObjective = document.getElementById("controlObjective").value;
 const criteria = document.getElementById("criteria").value;
