@@ -271,9 +271,10 @@ const overallConclusion = document.getElementById("overallConclusion").value;
 };       
         
         
-        
-    // 4. إضافة التقرير الجديد
-    reports.push(report);
+    
+        // 4.  إضافة التقرير الجديد
+        let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
+        reports.push(report);
 
     // 5. حفظ مرة أخرى
     localStorage.setItem("auditReports", JSON.stringify(reports));
