@@ -377,9 +377,28 @@ reports = reports.filter(r =>
     <td>${report.reportDate || ""}</td>
 </tr>
 </table>
-<p><b>Observation:</b><br>${report.observation || ""}</p>
-<p><b>Root Cause:</b><br>${report.rootCause || ""}</p>
-<p><b>Recommendation:</b><br>${report.recommendation || ""}</p>
+<h3 style="background:#003366;color:white;padding:8px;">
+Observation Details
+</h3>
+
+<table style="width:100%;border-collapse:collapse;" border="1" cellpadding="8">
+
+<tr>
+<td width="25%"><b>Observation</b></td>
+<td>${report.observation || ""}</td>
+</tr>
+
+<tr>
+<td><b>Root Cause</b></td>
+<td>${report.rootCause || ""}</td>
+</tr>
+
+<tr>
+<td><b>Recommendation</b></td>
+<td>${report.recommendation || ""}</td>
+</tr>
+
+</table>
 
 <hr>
 
