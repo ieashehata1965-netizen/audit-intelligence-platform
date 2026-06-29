@@ -168,19 +168,40 @@ button{
 }
 @media print {
 
-  button {
-    display: none !important;
+  @page {
+    margin: 5mm; /* أقل من 10mm لزيادة الاستفادة من الورقة */
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: auto;
   }
 
   body {
     direction: ltr;
     text-align: left;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
+  /* الحاوية الأساسية للتقرير */
   #reportViewer {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+  }
+
+  /* إزالة أي padding داخلي قد يسبب فراغ */
+  * {
+    box-shadow: none !important;
+  }
+
+  button {
+    display: none !important;
   }
 }
