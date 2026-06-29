@@ -275,14 +275,16 @@ const overallConclusion = document.getElementById("overallConclusion").value;
     createdAt: new Date().toISOString()
 };       
         
-    // 3. جلب البيانات القديمة من LocalStorage
-    let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
-let searchText = document.getElementById("searchReport")?.value.toLowerCase() || "";
+  // 3. جلب البيانات القديمة من LocalStorage
+let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
+
+// البحث
+let search = document.getElementById("searchReport")?.value.toLowerCase() || "";
 
 reports = reports.filter(r =>
-    (r.auditNumber || "").toLowerCase().includes(searchText) ||
-    (r.title || "").toLowerCase().includes(searchText) ||
-    (r.department || "").toLowerCase().includes(searchText)
+    (r.auditNumber || "").toLowerCase().includes(search) ||
+    (r.auditTitle || "").toLowerCase().includes(search) ||
+    (r.auditDepartment || "").toLowerCase().includes(search)
 );
         
         
