@@ -296,7 +296,15 @@ const overallConclusion = document.getElementById("overallConclusion").value;
 function updateDashboard(){
 
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
+// البحث
+let search = document.getElementById("searchReport")?.value.toLowerCase() || "";
 
+reports = reports.filter(r =>
+    (r.auditNumber || "").toLowerCase().includes(search) ||
+    (r.title || "").toLowerCase().includes(search) ||
+    (r.department || "").toLowerCase().includes(search)
+);
+    
     // 1. إجمالي التقارير (KPI)
     document.getElementById("totalReports").innerText = reports.length + " Reports";
 
