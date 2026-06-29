@@ -429,7 +429,11 @@ document.getElementById("reportViewer").style.display = "block";
  alert("printReport started");
     const reportHTML = document.getElementById("reportContent").innerHTML;
 
-    const printWindow = window.open("", "_blank");
+    const printWindow = window.open("", "_blank", "width=900,height=700");
+        if (!printWindow) {
+    alert("Popup blocked");
+    return;
+}
 
     printWindow.document.write(`
         <html>
