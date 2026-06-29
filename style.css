@@ -169,36 +169,22 @@ button{
 @media print {
 
   @page {
-    margin: 5mm; /* أقل من 10mm لزيادة الاستفادة من الورقة */
+    margin: 5mm;
   }
 
-  html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100%;
-    height: auto;
+  body * {
+    visibility: hidden !important;
   }
 
-  body {
-    direction: ltr;
-    text-align: left;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  #reportViewer, #reportViewer * {
+    visibility: visible !important;
   }
 
-  /* الحاوية الأساسية للتقرير */
   #reportViewer {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
     position: absolute;
     left: 0;
     top: 0;
-  }
-
-  /* إزالة أي padding داخلي قد يسبب فراغ */
-  * {
-    box-shadow: none !important;
+    width: 100%;
   }
 
   button {
