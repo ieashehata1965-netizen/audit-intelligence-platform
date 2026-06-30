@@ -368,18 +368,18 @@ reports = reports.filter(r =>
 <table style="width:100%;border-collapse:collapse;margin-bottom:20px;text-align:right;" border="1" cellpadding="8">
 
 <tr>
-    <td><b>رقم التدقيق | Audit No.</b></td>
+    <td><b>Audit No. | رقم التدقيق</b></td>
     <td>${report.auditNumber || ""}</td>
 
-    <td><b>الإدارة | Department</b></td>
+    <td><b>Department | الإدارة</b></td>
     <td>${report.department || ""}</td>
 </tr>
 
 <tr>
-    <td><b>الحالة | Status</b></td>
+    <td><b>Status | الحالة</b></td>
     <td>${report.status || ""}</td>
 
-    <td><b>التاريخ | Date</b></td>
+    <td><b>Date | التاريخ</b></td>
     <td>${report.reportDate || ""}</td>
 </tr>
 
@@ -387,29 +387,29 @@ reports = reports.filter(r =>
 
 <!-- OBSERVATION -->
 <h3 style="background:#003366;color:white;padding:8px;text-align:center;">
-تفاصيل الملاحظة | Observation Details
+Observation Details | تفاصيل الملاحظة
 </h3>
 
 <table style="width:100%;border-collapse:collapse;text-align:right;" border="1" cellpadding="8">
 
 <tr>
-<td width="25%"><b>الملاحظة | Observation</b></td>
-<td>${report.observation || ""}</td>
+    <td width="25%"><b>Observation | الملاحظة</b></td>
+    <td>${report.observation || ""}</td>
 </tr>
 
 <tr>
-<td><b>السبب الجذري | Root Cause</b></td>
-<td>${report.rootCause || ""}</td>
+    <td><b>Root Cause | السبب الجذري</b></td>
+    <td>${report.rootCause || ""}</td>
 </tr>
 
 <tr>
-<td><b>التوصية | Recommendation</b></td>
-<td>${report.recommendation || ""}</td>
+    <td><b>Recommendation | التوصية</b></td>
+    <td>${report.recommendation || ""}</td>
 </tr>
 
 <tr>
-<td><b>الخلاصة | Overall Conclusion</b></td>
-<td>${report.overallConclusion || ""}</td>
+    <td><b>Overall Conclusion | الخلاصة</b></td>
+    <td>${report.overallConclusion || ""}</td>
 </tr>
 
 </table>
@@ -420,13 +420,13 @@ reports = reports.filter(r =>
 <table style="width:100%;border-collapse:collapse;text-align:right;margin-top:10px;" border="1" cellpadding="8">
 
 <tr>
-<td width="25%"><b>درجة المخاطر | Risk Rating</b></td>
-<td>${report.riskRating || ""}</td>
+    <td width="25%"><b>Risk Rating | درجة المخاطر</b></td>
+    <td>${report.riskRating || ""}</td>
 </tr>
 
 <tr>
-<td><b>الحالة | Status</b></td>
-<td>${report.status || "Draft"}</td>
+    <td><b>Status | الحالة</b></td>
+    <td>${report.status || "Draft"}</td>
 </tr>
 
 </table>
