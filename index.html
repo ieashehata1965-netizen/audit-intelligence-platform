@@ -344,7 +344,6 @@ reports = reports.filter(r =>
     function viewReport(id){
 
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
-
     let report = reports.find(r => r.id == id);
 
     if(!report){
@@ -353,103 +352,121 @@ reports = reports.filter(r =>
     }
 
     document.getElementById("reportContent").innerHTML = `
-<div style="text-align:right; line-height:1.8; font-family:Arial">
+<div style="direction:rtl; font-family:Tahoma, Arial; line-height:1.8">
 
+<!-- HEADER -->
 <div style="text-align:center; margin-bottom:20px;">
-    <h2 style="margin:0;color:#003366;">Internal Audit Report</h2>
-    <h3 style="margin:8px 0;">${report.title || ""}</h3>
+    <h2 style="margin:0;color:#003366;">
+        تقرير التدقيق الداخلي | Internal Audit Report
+    </h2>
+    <h3 style="margin:8px 0;">
+        ${report.title || ""}
+    </h3>
 </div>
 
-<table style="width:100%;border-collapse:collapse;margin-bottom:20px;direction:ltr;text-align:left;" border="1" cellpadding="8">
+<!-- BASIC INFO -->
+<table style="width:100%;border-collapse:collapse;margin-bottom:20px;text-align:right;" border="1" cellpadding="8">
+
 <tr>
-    <td><b>Audit No.</b></td>
+    <td><b>رقم التدقيق | Audit No.</b></td>
     <td>${report.auditNumber || ""}</td>
 
-    <td><b>Department</b></td>
+    <td><b>الإدارة | Department</b></td>
     <td>${report.department || ""}</td>
 </tr>
 
 <tr>
-    <td><b>Status</b></td>
+    <td><b>الحالة | Status</b></td>
     <td>${report.status || ""}</td>
 
-    <td><b>Date</b></td>
+    <td><b>التاريخ | Date</b></td>
     <td>${report.reportDate || ""}</td>
 </tr>
+
 </table>
+
+<!-- OBSERVATION -->
 <h3 style="background:#003366;color:white;padding:8px;text-align:center;">
-Observation Details
+تفاصيل الملاحظة | Observation Details
 </h3>
 
-<table style="width:100%;border-collapse:collapse;direction:ltr;text-align:left;" border="1" cellpadding="8">
+<table style="width:100%;border-collapse:collapse;text-align:right;" border="1" cellpadding="8">
 
 <tr>
-<td width="25%"><b>Observation</b></td>
+<td width="25%"><b>الملاحظة | Observation</b></td>
 <td>${report.observation || ""}</td>
 </tr>
 
 <tr>
-<td><b>Root Cause</b></td>
+<td><b>السبب الجذري | Root Cause</b></td>
 <td>${report.rootCause || ""}</td>
 </tr>
 
 <tr>
-<td><b>Recommendation</b></td>
+<td><b>التوصية | Recommendation</b></td>
 <td>${report.recommendation || ""}</td>
 </tr>
 
 <tr>
-<td><b>Overall Conclusion</b></td>
+<td><b>الخلاصة | Overall Conclusion</b></td>
 <td>${report.overallConclusion || ""}</td>
-</tr
+</tr>
 
 </table>
 
 <hr>
 
-<table style="width:100%;border-collapse:collapse;direction:ltr;text-align:left;" border="1" cellpadding="8">
+<!-- RISK -->
+<table style="width:100%;border-collapse:collapse;text-align:right;margin-top:10px;" border="1" cellpadding="8">
 
 <tr>
-<td width="25%"><b>Risk Rating</b></td>
+<td width="25%"><b>درجة المخاطر | Risk Rating</b></td>
 <td>${report.riskRating || ""}</td>
 </tr>
 
 <tr>
-<td><b>Status</b></td>
+<td><b>الحالة | Status</b></td>
 <td>${report.status || "Draft"}</td>
 </tr>
 
 </table>
+
 </div>
 `;
 
-document.getElementById("reportViewer").style.display = "block";
+    document.getElementById("reportViewer").style.display = "block";
 }
-    
-    function closeReportViewer(){
+
+
+// CLOSE VIEWER
+function closeReportViewer(){
     document.getElementById("reportViewer").style.display = "none";
 }
 
-    function printReport() {
- alert("printReport started");
+
+// PRINT REPORT
+function printReport() {
+
     const reportHTML = document.getElementById("reportContent").innerHTML;
 
     const printWindow = window.open("", "_blank", "width=900,height=700");
-        if (!printWindow) {
-    alert("Popup blocked");
-    return;
-}
+
+    if (!printWindow) {
+        alert("Popup blocked");
+        return;
+    }
 
     printWindow.document.write(`
         <html>
         <head>
             <title>Audit Report</title>
+
             <style>
                 body{
-                    font-family: Arial, Tahoma, sans-serif;
+                    font-family: Tahoma, Arial, sans-serif;
                     margin:15mm;
-                    direction: rtl;
-unicode-bidi: plaintext;
+                    direction:rtl;
+                    unicode-bidi:plaintext;
                 }
 
                 table{
@@ -472,22 +489,20 @@ unicode-bidi: plaintext;
                 }
             </style>
         </head>
+
         <body>
-
+    
             ${reportHTML}
-
         </body>
         </html>
     `);
 
     printWindow.document.close();
-
     printWindow.focus();
-
     printWindow.print();
-
     printWindow.close();
 }
+
 </script>
 
 </body>
