@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Internal Audit Report</title>
 
+<style>
+body {
+    direction: ltr;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 30px;
+    background: #fff;
+}
+
+.report {
+    max-width: 900px;
+    margin: auto;
+}
+
+.header {
+    text-align: left;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.header h2 {
+    margin: 5px 0 0;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+}
+
+.section {
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    border-left: 4px solid #000;
+    padding-left: 8px;
+    margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+    margin: 5px 0;
+}
+
+.label {
+    width: 220px;
+    font-weight: bold;
+}
+
+.value {
+    flex: 1;
+}
+
+.text-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 40px;
+    white-space: pre-wrap;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+@media print {
+    body {
+        margin: 0;
+    }
+
+    button {
+        display: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="report">
+
+<!-- HEADER -->
+<div class="header">
+    <h1>Internal Audit Report</h1>
+    <h2>Confidential Document | وثيقة سرية</h2>
+</div>
+
+<!-- GENERAL INFO -->
+<div class="section">
+<div class="section-title">General Information</div>
+
+<div class="row"><div class="label">Audit Number</div><div class="value" id="p_auditNumber"></div></div>
+<div class="row"><div class="label">Audit Title</div><div class="value" id="p_auditTitle"></div></div>
+<div class="row"><div class="label">Department</div><div class="value" id="p_department"></div></div>
+<div class="row"><div class="label">Audit Period</div><div class="value" id="p_period"></div></div>
+<div class="row"><div class="label">Auditor</div><div class="value" id="p_auditor"></div></div>
+<div class="row"><div class="label">Reviewer</div><div class="value" id="p_reviewer"></div></div>
+<div class="row"><div class="label">Report Date</div><div class="value" id="p_date"></div></div>
+
+</div>
+
+<!-- SCOPE -->
+<div class="section">
+<div class="section-title">Scope & Objective</div>
+<div class="text-box" id="p_scope"></div>
+<br>
+<div class="text-box" id="p_objective"></div>
+</div>
+
+<!-- OBSERVATION -->
+<div class="section">
+<div class="section-title">Audit Observation</div>
+
+<div class="row"><div class="label">Condition</div><div class="value" id="p_condition"></div></div>
+<div class="row"><div class="label">Root Cause</div><div class="value" id="p_rootCause"></div></div>
+<div class="row"><div class="label">Impact</div><div class="value" id="p_impact"></div></div>
+<div class="row"><div class="label">Recommendation</div><div class="value" id="p_recommendation"></div></div>
+
+</div>
+
+<!-- RISK -->
+<div class="section">
+<div class="section-title">Risk Assessment</div>
+
+<div class="row"><div class="label">Likelihood</div><div class="value" id="p_likelihood"></div></div>
+<div class="row"><div class="label">Impact Rating</div><div class="value" id="p_impactRating"></div></div>
+<div class="row"><div class="label">Risk Rating</div><div class="value" id="p_riskRating"></div></div>
+
+</div>
+
+<!-- MANAGEMENT RESPONSE -->
+<div class="section">
+<div class="section-title">Management Response</div>
+
+<div class="text-box" id="p_mgmtResponse"></div>
+
+<div class="row"><div class="label">Responsible Person</div><div class="value" id="p_responsible"></div></div>
+<div class="row"><div class="label">Target Date</div><div class="value" id="p_targetDate"></div></div>
+<div class="row"><div class="label">Status</div><div class="value" id="p_status"></div></div>
+
+</div>
+
+<!-- FOOTER -->
+<hr>
+<div style="font-size:12px; text-align:left;">
+Internal Audit Department | Generated System Report
+</div>
+
+</div>
+
+</body>
+</html>
