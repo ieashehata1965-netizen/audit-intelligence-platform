@@ -365,22 +365,46 @@ reports = reports.filter(r =>
 </div>
 
 <!-- BASIC INFO -->
-<table style="width:100%;border-collapse:collapse;margin-bottom:20px;text-align:right;" border="1" cellpadding="8">
+<table style="width:100%; border-collapse:collapse; margin-bottom:20px;" border="1" cellpadding="8">
 
 <tr>
-    <td><b>Audit No. | رقم التدقيق</b></td>
-    <td>${report.auditNumber || ""}</td>
 
-    <td><b>Department | الإدارة</b></td>
-    <td>${report.department || ""}</td>
+    <td style="direction:ltr; text-align:left;">
+        <b>Audit No. | رقم التدقيق</b>
+    </td>
+
+    <td style="direction:ltr; text-align:left;">
+        ${report.auditNumber || ""}
+    </td>
+
+    <td style="direction:ltr; text-align:left;">
+        <b>Department | الإدارة</b>
+    </td>
+
+    <td style="direction:ltr; text-align:left;">
+        ${report.department || ""}
+    </td>
+
 </tr>
 
 <tr>
-    <td><b>Status | الحالة</b></td>
-    <td>${report.status || ""}</td>
 
-    <td><b>Date | التاريخ</b></td>
-    <td>${report.reportDate || ""}</td>
+    <td style="direction:ltr; text-align:left;">
+        <b>Status | الحالة</b>
+    </td>
+
+    <td style="direction:ltr; text-align:left;">
+        ${report.status || ""}
+    </td>
+
+    <td style="direction:ltr; text-align:left;">
+        <b>Date | التاريخ</b>
+    </td>
+
+    <td style="direction:ltr; text-align:left;">
+        ${report.reportDate || ""}
+    </td>
+
 </tr>
 
 </table>
@@ -390,47 +414,69 @@ reports = reports.filter(r =>
 Observation Details | تفاصيل الملاحظة
 </h3>
 
-<table style="width:100%;border-collapse:collapse;text-align:right;" border="1" cellpadding="8">
+<table style="width:100%; border-collapse:collapse;" border="1" cellpadding="8">
 
 <tr>
-    <td width="25%"><b>Observation | الملاحظة</b></td>
+    <td width="25%" style="direction:ltr; text-align:left;">
+        <b>Observation | الملاحظة</b>
+    </td>
     <td style="direction:ltr; text-align:left;">
-    ${report.observation || ""}
-</td>
+        ${report.observation || ""}
+    </td>
+</tr>
 
 <tr>
-    <td><b>Root Cause | السبب الجذري</b></td>
     <td style="direction:ltr; text-align:left;">
-    ${report.rootCause || ""}
-</td>
-
-<tr>
-    <td><b>Recommendation | التوصية</b></td>
-   <td style="direction:ltr; text-align:left;">
-    ${report.recommendation || ""}
-</td>
-
-<tr>
-    <td><b>Overall Conclusion | الخلاصة</b></td>
+        <b>Root Cause | السبب الجذري</b>
+    </td>
     <td style="direction:ltr; text-align:left;">
-    ${report.overallConclusion || ""}
-</td>
+        ${report.rootCause || ""}
+    </td>
+</tr>
+
+<tr>
+    <td style="direction:ltr; text-align:left;">
+        <b>Recommendation | التوصية</b>
+    </td>
+    <td style="direction:ltr; text-align:left;">
+        ${report.recommendation || ""}
+    </td>
+</tr>
+
+<tr>
+    <td style="direction:ltr; text-align:left;">
+        <b>Overall Conclusion | الخلاصة</b>
+    </td>
+    <td style="direction:ltr; text-align:left;">
+        ${report.overallConclusion || ""}
+    </td>
+</tr>
 
 </table>
 
 <hr>
 
 <!-- RISK -->
-<table style="width:100%;border-collapse:collapse;text-align:right;margin-top:10px;" border="1" cellpadding="8">
+<table style="width:100%; border-collapse:collapse; margin-top:10px;" border="1" cellpadding="8">
 
 <tr>
-    <td width="25%"><b>Risk Rating | درجة المخاطر</b></td>
-    <td>${report.riskRating || ""}</td>
+    <td width="25%" style="direction:ltr; text-align:left;">
+        <b>Risk Rating | درجة المخاطر</b>
+    </td>
+
+    <td style="direction:ltr; text-align:left;">
+        ${report.riskRating || ""}
+    </td>
 </tr>
 
 <tr>
-    <td><b>Status | الحالة</b></td>
-    <td>${report.status || "Draft"}</td>
+    <td style="direction:ltr; text-align:left;">
+        <b>Status | الحالة</b>
+    </td>
+
+    <td style="direction:ltr; text-align:left;">
+        ${report.status || "Draft"}
+    </td>
 </tr>
 
 </table>
@@ -438,16 +484,9 @@ Observation Details | تفاصيل الملاحظة
 </div>
 `;
 
-    document.getElementById("reportViewer").style.display = "block";
+document.getElementById("reportViewer").style.display = "block";
 }
-
-
-// CLOSE VIEWER
-function closeReportViewer(){
-    document.getElementById("reportViewer").style.display = "none";
-}
-
-
+    
 // PRINT REPORT
 function printReport() {
 
@@ -461,54 +500,65 @@ function printReport() {
     }
 
     printWindow.document.write(`
-        <html>
-        <head>
-            <title>Audit Report</title>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Audit Report</title>
 
-            <style>
-                body{
+<style>
+
+body{
     font-family: Tahoma, Arial, sans-serif;
     margin:5mm;
     direction:ltr;
     text-align:left;
+    background:#fff;
 }
 
-                table{
-                    width:100%;
-                    border-collapse:collapse;
-                }
+table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
 
-                td, th{
+td, th{
     border:1px solid #000;
     padding:8px;
+    direction:ltr;
     text-align:left;
     vertical-align:top;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
 }
 
-                h2,h3{
-                    text-align:center;
-                }
+h2,h3{
+    text-align:center;
+    margin:8px 0;
+}
 
-                @page{
-                    size:A4;
-                    margin:12mm;
-                }
-            </style>
-        </head>
+@page{
+    size:A4;
+    margin:10mm;
+}
 
-        <body>
-    
-            ${reportHTML}
-        </body>
-        </html>
-    `);
+</style>
+
+</head>
+
+<body>
+
+${reportHTML}
+
+</body>
+</html>
+`);
 
     printWindow.document.close();
     printWindow.focus();
     printWindow.print();
     printWindow.close();
 }
-
 </script>
 
 </body>
