@@ -163,5 +163,20 @@ Internal Audit Department | Generated System Report
 
 </div>
 
+    <script>
+function loadReport() {
+
+    const report = JSON.parse(localStorage.getItem("auditReport"));
+
+    if (!report) {
+        alert("No report data found.");
+        return;
+    }
+
+    console.log(report);
+
+}
+        
+</script>
 </body>
 </html>
