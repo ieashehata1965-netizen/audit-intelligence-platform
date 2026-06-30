@@ -167,26 +167,25 @@
 </div>
   </div>
 </div>
+
 <div id="reportViewer" class="modal">
   <div class="modal-content">
 
     <h2>Audit Report</h2>
 
-<div id="reportContent"></div>
+    <button onclick="printReport()" style="margin-bottom:10px;">
+        Print Report
+    </button>
 
-<div class="action-buttons">
+    <div id="reportContent"></div>
 
-    <button onclick="editReport()">Edit Report</button>
+    <div class="action-buttons">
+        <button onclick="closeReportViewer()">Close</button>
+    </div>
 
-    <button onclick="printReport()">Print Report</button>
-
-    <button onclick="closeReportViewer()">Close</button>
-
-</div>
-      
   </div>
-</div>    
-<script>
+</div>
+    <script>
 function openModal(){
     const modal = document.getElementById("auditModal");
 
