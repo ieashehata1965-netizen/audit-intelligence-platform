@@ -390,10 +390,11 @@ visibleReports.forEach(function(r){
             </div>
 
             <button
-                onclick="event.stopPropagation(); deleteReport('${r.id}')"
-                style="background:#c62828;color:white;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;">
-                Delete
-            </button>
+    title="Delete Report"
+    onclick="event.stopPropagation(); deleteReport('${r.id}')"
+    style="background:#dc3545;color:white;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;font-size:16px;">
+    🗑️
+</button>
 
         </div>
 
