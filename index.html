@@ -160,7 +160,7 @@
   Cancel
 </button>
 
-<button onclick="saveAuditReport()">
+<button id="saveReportBtn" onclick="saveAuditReport()">
   Save Report
 </button>
 
@@ -201,6 +201,10 @@ function openModal(){
 function closeModal(){
     const modal = document.getElementById("auditModal");
     modal.style.display = "none";
+    // reset editing flag when closing without saving
+    window.editingReportId = null;
+    document.getElementById('saveReportBtn').innerText = 'Save Report';
+    // Optionally clear fields
 }
     function closeReportViewer(){
     const viewer = document.getElementById("reportViewer");
@@ -208,6 +212,9 @@ function closeModal(){
 }
 
     function saveAuditReport(){
+
+    // Load existing reports
+let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
 
     // 1. جلب القيم من الحقول
 const auditNumber = document.getElementById("auditNumber").value;
@@ -220,9 +227,10 @@ const title = document.getElementById("auditTitle").value;
 const department = document.getElementById("auditDepartment").value;
 const scope = document.getElementById("auditScope").value;
 
-const observation = document.getElementById("observation")?.value || "";
+// NOTE: use 'condition' field as the observation
+const observation = document.getElementById("condition")?.value || "";
 const rootCause = document.getElementById("rootCause")?.value || "";
-const impact = document.getElementById("impact").value;
+const impact = document.getElementById("impact")?.value || "";
 const recommendation = document.getElementById("recommendation")?.value || "";
 const observationNumber = document.getElementById("observationNumber").value;
 const controlObjective = document.getElementById("controlObjective").value;
@@ -240,9 +248,23 @@ const statusField = document.getElementById("status").value;
 const workingPaper = document.getElementById("workingPaper").value;
 const overallConclusion = document.getElementById("overallConclusion").value;        
 
+    // Determine if we are editing an existing report or creating a new one
+    const isEditing = !!window.editingReportId;
+    let createdAt = new Date().toISOString();
+    let reportId = "AR-" + Date.now();
+
+    if(isEditing){
+        // find existing report to preserve createdAt and id
+        const idx = reports.findIndex(r => r.id === window.editingReportId);
+        if(idx !== -1){
+            createdAt = reports[idx].createdAt || createdAt;
+            reportId = reports[idx].id || window.editingReportId;
+        }
+    }
+
     // 2. إنشاء كائن التقرير
    const report = {
-    id: "AR-" + Date.now(),
+    id: reportId,
 
     auditNumber,
     title,
@@ -275,19 +297,29 @@ const overallConclusion = document.getElementById("overallConclusion").value;
 
     status: statusField || "Draft",
 
-    createdAt: new Date().toISOString()
+    createdAt: createdAt
 };       
         
-      // Load existing reports
-let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
-
-// Add new report
-reports.push(report);
+// Add or update report
+if(isEditing){
+    const idx = reports.findIndex(r => r.id === window.editingReportId);
+    if(idx !== -1){
+        reports[idx] = report;
+    } else {
+        reports.push(report);
+    }
+} else {
+    reports.push(report);
+}
 
 // Save back
 localStorage.setItem("auditReports", JSON.stringify(reports));
     // 6. تنبيه بسيط
-    alert("Report Saved Successfully");
+    alert(isEditing ? "Report Updated Successfully" : "Report Saved Successfully");
+
+    // reset editing flag
+    window.editingReportId = null;
+    document.getElementById('saveReportBtn').innerText = 'Save Report';
 
     // 7. إغلاق المودال
     closeModal();
@@ -580,12 +612,58 @@ ${reportHTML}
     openModal();
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
 let report = reports.find(r => r.id == window.currentReportId);
+if(!report){
+    alert('Report Not Found');
+    return;
+}
+
+// set editing flag so save will update existing report
+window.editingReportId = report.id;
+// populate modal fields with report data
+document.getElementById('auditNumber').value = report.auditNumber || '';
+document.getElementById('auditTitle').value = report.title || '';
+document.getElementById('auditDepartment').value = report.department || '';
+document.getElementById('auditPeriod').value = report.auditPeriod || '';
+document.getElementById('auditor').value = report.auditor || '';
+document.getElementById('reviewer').value = report.reviewer || '';
+document.getElementById('reportDate').value = report.reportDate || '';
+document.getElementById('auditObjective').value = report.auditObjective || '';
+document.getElementById('auditScope').value = report.scope || '';
+
+document.getElementById('observationNumber').value = report.observationNumber || '';
+document.getElementById('controlObjective').value = report.controlObjective || '';
+document.getElementById('criteria').value = report.criteria || '';
+// observation maps to textarea id 'condition'
+document.getElementById('condition').value = report.observation || '';
+
+document.getElementById('rootCause').value = report.rootCause || '';
+document.getElementById('impact').value = report.impact || '';
+document.getElementById('recommendation').value = report.recommendation || '';
+
+document.getElementById('riskType').value = report.riskType || '';
+document.getElementById('likelihood').value = report.likelihood || '';
+document.getElementById('impactRating').value = report.impactRating || '';
+document.getElementById('riskRating').value = report.riskRating || '';
+
+document.getElementById('managementResponse').value = report.managementResponse || '';
+document.getElementById('responsiblePerson').value = report.responsiblePerson || '';
+document.getElementById('targetDate').value = report.targetDate || '';
+document.getElementById('status').value = report.status || '';
+document.getElementById('workingPaper').value = report.workingPaper || '';
+document.getElementById('overallConclusion').value = report.overallConclusion || '';
+
+// change save button text
+document.getElementById('saveReportBtn').innerText = 'Update Report';
 }
 
 function closeReportViewer(){
     document.getElementById("reportViewer").style.display = "none";
 }
         
+// initialize dashboard on load
+window.onload = function(){
+    updateDashboard();
+};
 </script>
 
 </body>
