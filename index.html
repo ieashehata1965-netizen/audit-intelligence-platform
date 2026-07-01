@@ -383,9 +383,19 @@ reports = reports.filter(r =>
         html += `
         <div class="report-card" onclick="viewReport('${r.id}')">
 
-            <div class="report-title">
-                ${r.title || "Untitled Report"}
-            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+
+    <div class="report-title">
+        ${r.title || "Untitled Report"}
+    </div>
+
+    <button
+        onclick="event.stopPropagation(); deleteReport('${r.id}')"
+        style="background:#c62828;color:white;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;">
+        Delete
+    </button>
+
+</div>
 
             <div class="report-meta">
                 Department: ${r.department || "N/A"} <br>
