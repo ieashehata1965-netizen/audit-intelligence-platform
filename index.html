@@ -375,42 +375,41 @@ reports = reports.filter(r =>
     // 3. أخذ آخر 5 تقارير فقط (Control of Display Load)
     let visibleReports = reports;
 
-    // 4. بناء المحتوى
-    let html = "";
+   // 4. بناء المحتوى
+let html = "";
 
-    visibleReports.forEach(function(r){
+visibleReports.forEach(function(r){
 
-        html += `
-        <div class="report-card" onclick="viewReport('${r.id}')">
+    html += `
+    <div class="report-card" onclick="viewReport('${r.id}')">
 
-            <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
 
-    <div class="report-title">
-        ${r.title || "Untitled Report"}
-    </div>
-
-    
-</div>
-
-            <div class="report-meta">
-                Department: ${r.department || "N/A"} <br>
-                ID: ${r.id || "N/A"}
+            <div class="report-title">
+                ${r.title || "Untitled Report"}
             </div>
 
-            <div class="report-status status-${r.status}">
-    ${r.status || "Unknown"}
-</div>
+            <button
+                onclick="event.stopPropagation(); deleteReport('${r.id}')"
+                style="background:#c62828;color:white;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;">
+                Delete
+            </button>
 
-<button
-    onclick="event.stopPropagation(); deleteReport('${r.id}')"
-    style="margin-top:10px;padding:6px 12px;background:#c62828;color:white;border:none;border-radius:5px;cursor:pointer;">
-    Delete
-</button>
+        </div>
 
-</div>
-`;
-    });
+        <div class="report-meta">
+            Department: ${r.department || "N/A"} <br>
+            ID: ${r.id || "N/A"}
+        </div>
 
+        <div class="report-status status-${r.status}">
+            ${r.status || "Unknown"}
+        </div>
+
+    </div>
+    `;
+});
+    
     // 5. العرض النهائي
     document.getElementById("reportsList").innerHTML = html;
 }
