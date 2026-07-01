@@ -383,7 +383,7 @@ visibleReports.forEach(function(r){
     html += `
     <div class="report-card" onclick="viewReport('${r.id}')">
 
-<div style="display:flex;justify-content:space-between;align-items:flex-start;width:100%;">
+<div style="display:grid;grid-template-columns:1fr 35px;column-gap:10px;">
 
     <div class="report-title">
         ${r.title || "Untitled Report"}
