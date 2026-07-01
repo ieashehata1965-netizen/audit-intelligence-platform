@@ -192,8 +192,35 @@
 function openModal(){
     const modal = document.getElementById("auditModal");
 
-    console.log(modal); // للتأكد
+    // تأكد من فتح نموذج إنشاء جديد (ليس تعديل)
+    window.editingReportId = null;
+    document.getElementById('saveReportBtn').innerText = 'Save Report';
 
+    // قائمة الحقول المراد مسحها أو إعادة تعيينها
+    const fields = [
+      'auditNumber','auditTitle','auditDepartment','auditPeriod','auditor','reviewer','reportDate',
+      'auditObjective','auditScope','observationNumber','controlObjective','criteria','condition',
+      'rootCause','impact','recommendation','riskType','likelihood','impactRating','riskRating',
+      'managementResponse','responsiblePerson','targetDate','status','workingPaper','overallConclusion'
+    ];
+
+    fields.forEach(id => {
+      const el = document.getElementById(id);
+      if(!el) return;
+      const tag = el.tagName.toLowerCase();
+      if(tag === 'select'){
+        el.selectedIndex = 0;
+      } else if(tag === 'textarea' || tag === 'input'){
+        // للـ input تأكد من نوعه
+        if(el.type === 'checkbox' || el.type === 'radio'){
+          el.checked = false;
+        } else {
+          el.value = '';
+        }
+      }
+    });
+
+    // افتح المودال
     modal.style.display = "block";
 }
     
@@ -206,11 +233,6 @@ function closeModal(){
     document.getElementById('saveReportBtn').innerText = 'Save Report';
     // Optionally clear fields
 }
-    function closeReportViewer(){
-    const viewer = document.getElementById("reportViewer");
-    viewer.style.display = "none";
-}
-
     function saveAuditReport(){
 
     // Load existing reports
