@@ -578,7 +578,8 @@ ${reportHTML}
 
     closeReportViewer();
     openModal();
-
+    let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
+let report = reports.find(r => r.id == window.currentReportId);
 }
 
 function closeReportViewer(){
