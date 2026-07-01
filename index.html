@@ -383,19 +383,28 @@ visibleReports.forEach(function(r){
     html += `
     <div class="report-card" onclick="viewReport('${r.id}')">
 
-        <div style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;width:100%;">
 
-            <div class="report-title">
-                ${r.title || "Untitled Report"}
-            </div>
+    <div class="report-title">
+        ${r.title || "Untitled Report"}
+    </div>
 
-            <button
-    title="Delete Report"
-    onclick="event.stopPropagation(); deleteReport('${r.id}')"
-    style="background:#dc3545;color:white;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;font-size:16px;">
-    🗑️
-</button>
+    <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
 
+        <span title="Print Report" style="cursor:pointer;font-size:18px;">🖨️</span>
+
+        <span title="Edit Report" style="cursor:pointer;font-size:18px;">✏️</span>
+
+        <span
+            title="Delete Report"
+            onclick="event.stopPropagation(); deleteReport('${r.id}')"
+            style="cursor:pointer;font-size:18px;color:#dc3545;">
+            🗑️
+        </span>
+
+    </div>
+
+</div>
         </div>
 
         <div class="report-meta">
