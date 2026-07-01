@@ -350,7 +350,7 @@ reports = reports.filter(r =>
 
     let reports = JSON.parse(localStorage.getItem("auditReports")) || [];
     let report = reports.find(r => r.id == id);
-
+    window.currentReportId = id;
     if(!report){
         alert("Report Not Found");
         return;
