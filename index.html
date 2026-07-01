@@ -564,7 +564,9 @@ ${reportHTML}
     printWindow.onload = function () {
         printWindow.focus();
         printWindow.print();
-        printWindow.close();
+        setTimeout(() => {
+    printWindow.close();
+}, 500);
     };
     }
         
