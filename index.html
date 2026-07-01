@@ -399,9 +399,10 @@ visibleReports.forEach(function(r){
         </div>
 
         <div class="report-meta">
-            Department: ${r.department || "N/A"} <br>
-            ID: ${r.id || "N/A"}
-        </div>
+    Department: ${r.department || "N/A"} <br>
+    ID: ${r.id || "N/A"} <br>
+    Date: ${r.reportDate || "N/A"}
+</div>
 
         <div class="report-status status-${r.status}">
             ${r.status || "Unknown"}
