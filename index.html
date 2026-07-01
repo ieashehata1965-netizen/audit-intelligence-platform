@@ -406,32 +406,20 @@ visibleReports.forEach(function(r){
 
 </div>
       
-<div style="display:flex;justify-content:space-between;align-items:flex-start;">
+<div class="report-meta">
+    Department: ${r.department || "N/A"}
+</div>
 
-    <div>
+<div class="report-meta">
+    ID: ${r.id || "N/A"}
+</div>
 
-        <div class="report-meta">
-            Department: ${r.department || "N/A"}
-        </div>
+<div class="report-meta">
+    Date: ${r.reportDate || "N/A"}
+</div>
 
-        <div class="report-meta">
-            ID: ${r.id || "N/A"}
-        </div>
-
-        <div class="report-meta">
-            Date: ${r.reportDate || "N/A"}
-        </div>
-
-        <div class="report-status status-${r.status}">
-            ${r.status || "Unknown"}
-        </div>
-
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
-        <!-- الأيقونات ستكون هنا في الخطوة التالية -->
-    </div>
-
+<div class="report-status status-${r.status}">
+    ${r.status || "Unknown"}
 </div>
 
 </div>
